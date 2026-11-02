@@ -29,9 +29,17 @@ img{max-width:100%}
 .sub-name{font-size:17px;color:#eef5f6;display:flex;align-items:center;gap:10px;margin-right:auto}
 .sub-name img{width:28px;height:28px;border-radius:7px;display:block}
 .sub nav{display:flex;gap:24px}
-.sub nav a{display:flex;align-items:center;min-height:52px;color:#b4c6d1;text-decoration:none;border-bottom:3px solid transparent;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.sub nav a{position:relative;display:flex;align-items:center;min-height:52px;color:#b4c6d1;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 .sub nav a:hover{color:#eef5f6}
-.sub nav a[aria-current="page"]{color:#67d9c5;border-bottom-color:#67d9c5}
+.sub nav a[aria-current="page"]{color:#67d9c5}
+/* The underline is one named view-transition element on every page, so the browser slides it to the new tab
+   on navigation. Browsers without cross-document view transitions just swap it. */
+.sub nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#67d9c5;view-transition-name:sub-underline}
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  ::view-transition-group(sub-underline){animation-duration:.32s;animation-timing-function:cubic-bezier(.3,.7,.2,1)}
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;min-height:56px;padding:0 28px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;text-decoration:none}
@@ -117,5 +125,7 @@ body.launched .if-soon{display:none}
   .shots{display:flex;overflow-x:auto;padding-bottom:84px}
   .shots figure{flex:0 0 68%}
   .email-box .mail{font-size:18px}
+  .sub .in{padding-top:12px}
   .sub nav{gap:18px}
+  .stores .btn{width:100%;justify-content:center}
 }
