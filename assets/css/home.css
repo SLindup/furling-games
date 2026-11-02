@@ -34,9 +34,10 @@ img{max-width:100%}
 .portrait-in img{width:168px;height:auto;display:block;image-rendering:pixelated;margin-bottom:-4px}
 
 /* paper scrap: torn edges via clip-path on the inner span, so the shadow sits on the wrapper */
-.tag{position:absolute;bottom:-24px;right:-36px;rotate:-6deg;filter:drop-shadow(1px 3px 2px rgba(20,20,20,.25))}
+.tag{position:absolute;bottom:-60px;right:-30px;rotate:-6deg;filter:drop-shadow(1px 3px 2px rgba(20,20,20,.25))}
 .tag span{position:relative;display:block;font-size:42px;line-height:1;padding:10px 26px 14px;background:repeating-linear-gradient(transparent 0 17px,rgba(160,48,74,.12) 17px 18px),#fffaf0;
   clip-path:polygon(2% 7%,14% 1%,30% 5%,47% 0,65% 5%,83% 1%,98% 5%,100% 23%,97% 41%,100% 60%,98% 79%,100% 96%,84% 100%,66% 95%,48% 99%,31% 95%,15% 100%,1% 94%,3% 75%,0 56%,2% 37%,0 19%)}
+.tag small{display:block;margin-top:2px;font-size:20px;color:#5f574a;text-align:center}
 .tag::before{content:"";position:absolute;z-index:1;top:-10px;left:50%;width:58px;height:20px;margin-left:-29px;rotate:5deg;background:rgba(239,143,150,.75);
   clip-path:polygon(3% 0,97% 0,100% 18%,96% 36%,100% 54%,96% 72%,100% 90%,97% 100%,3% 100%,0 86%,4% 68%,0 50%,4% 32%,0 14%)}
 
@@ -95,7 +96,7 @@ body.launched .if-soon{display:none}
 
 @media (prefers-reduced-motion:reduce){.feat:hover .sash b::after{animation:none}.bt:hover{transform:none}}
 @media (max-width:720px){
-  .wrap{padding:0 16px}
+  .wrap{padding-left:16px;padding-right:16px}
   .bar-in{padding-left:16px;padding-right:16px}
   .hero{padding-top:44px;gap:36px}
   .hero h1{font-size:50px}
