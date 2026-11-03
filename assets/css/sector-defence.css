@@ -23,11 +23,25 @@ img{max-width:100%}
 .bar img{height:36px;width:auto;display:block}
 .bar nav{display:flex;flex-wrap:wrap;gap:24px}
 
-/* game sub-bar */
-.sub{background:#0b1823;border-bottom:1px solid #1c3241}
+/* game sub-bar: sticks to the top once the Furling bar scrolls away (assets/js/game-bar.js adds .stuck) */
+.sub{position:sticky;top:0;z-index:10;overflow:clip;background:#0b1823;border-bottom:1px solid #1c3241;transition:box-shadow .3s}
+.sub.stuck{box-shadow:0 10px 28px rgba(0,0,0,.4)}
 .sub .in{display:flex;flex-wrap:wrap;align-items:center;gap:4px 28px}
-.sub-name{font-size:17px;color:#eef5f6;display:flex;align-items:center;gap:10px;margin-right:auto}
-.sub-name img{width:28px;height:28px;border-radius:7px;display:block}
+.sub-name{font-size:17px;color:#eef5f6;display:flex;align-items:center;gap:10px;margin-right:auto;min-height:32px}
+.sub-name > img{width:28px;height:28px;border-radius:7px;display:block}
+/* Docked Furling logo: a cream chip (the Furling bar's colour) that is 0 wide until .stuck. Opening, the width
+   grows first so the game name slides right, then the chip drops in from where the Furling bar was;
+   closing runs the other way. The link clips sideways only, so the chip can sit above it, hidden by .sub. */
+.sub-home{flex:none;display:block;width:0;height:32px;margin-right:-10px;overflow:clip visible;visibility:hidden;
+  transition:width .36s cubic-bezier(.3,.7,.2,1) .16s,margin-right .36s cubic-bezier(.3,.7,.2,1) .16s,visibility 0s .52s}
+.sub-home .ch{--cut:7px;--bd:#fcf5e7;--fill:#fcf5e7;display:flex;align-items:center;width:88px;height:32px;padding:0 9px;
+  transform:translateY(-220%);transition:transform .24s cubic-bezier(.5,0,.75,0)}
+.sub-home img{height:24px;width:auto;display:block}
+.sub.stuck .sub-home{width:88px;margin-right:4px;visibility:visible;
+  transition:width .36s cubic-bezier(.3,.7,.2,1),margin-right .36s cubic-bezier(.3,.7,.2,1),visibility 0s}
+.sub.stuck .sub-home .ch{transform:none;transition:transform .42s cubic-bezier(.34,1.45,.55,1) .2s}
+.sub:not(.ready) *{transition:none!important}
+@media (prefers-reduced-motion:reduce){.sub *{transition:none!important}}
 .sub nav{display:flex;gap:24px}
 .sub nav a{position:relative;display:flex;align-items:center;min-height:52px;color:#b4c6d1;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 .sub nav a:hover{color:#eef5f6}
