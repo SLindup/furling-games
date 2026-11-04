@@ -29,17 +29,18 @@ img{max-width:100%}
 .sub .in{display:flex;flex-wrap:wrap;align-items:center;gap:4px 28px}
 .sub-name{font-size:17px;color:#eef5f6;display:flex;align-items:center;gap:10px;margin-right:auto;min-height:32px}
 .sub-name > img{width:28px;height:28px;border-radius:7px;display:block}
-/* Docked Furling logo: a cream chip (the Furling bar's colour) that is 0 wide until .stuck. Opening, the width
-   grows first so the game name slides right, then the chip drops in from where the Furling bar was;
-   closing runs the other way. The link clips sideways only, so the chip can sit above it, hidden by .sub. */
-.sub-home{flex:none;display:block;width:0;height:32px;margin-right:-10px;overflow:clip visible;visibility:hidden;
-  transition:width .36s cubic-bezier(.3,.7,.2,1) .16s,margin-right .36s cubic-bezier(.3,.7,.2,1) .16s,visibility 0s .52s}
-.sub-home .ch{--cut:7px;--bd:#fcf5e7;--fill:#fcf5e7;display:flex;align-items:center;width:88px;height:32px;padding:0 9px;
-  transform:translateY(-220%);transition:transform .24s cubic-bezier(.5,0,.75,0)}
+/* Docked Furling logo: a cream chip (the Furling bar's colour). Without JS it stays hidden at 0 wide. With JS
+   (.dock, from assets/js/game-bar.js) the chip is pinned to the viewport right over the Furling bar's logo, which
+   it stands in for: as you scroll, the chip holds still while the Furling bar slides away beneath it and this bar
+   rises to meet it; from the moment they touch, the chip shrinks into the bar and .sub-home widens (both driven
+   by scroll position) so the game name slides right to make room. */
+.sub-home{flex:none;display:block;width:0;height:32px;margin-right:-10px;visibility:hidden;outline:none}
+.sub-home .ch{--cut:7px;--bd:#fcf5e7;--fill:#fcf5e7;display:flex;align-items:center;width:88px;height:32px;padding:0 9px}
 .sub-home img{height:24px;width:auto;display:block}
-.sub.stuck .sub-home{width:88px;margin-right:4px;visibility:visible;
-  transition:width .36s cubic-bezier(.3,.7,.2,1),margin-right .36s cubic-bezier(.3,.7,.2,1),visibility 0s}
-.sub.stuck .sub-home .ch{transform:none;transition:transform .42s cubic-bezier(.34,1.45,.55,1) .2s}
+.sub.dock .sub-home{visibility:visible}
+.sub.dock .sub-home .ch{position:fixed;left:0;top:0;z-index:1;transform-origin:0 0;will-change:transform}
+.sub-home:focus-visible .ch{--bd:#67d9c5}
+.bar.dock > .in > a:first-child{visibility:hidden}
 .sub:not(.ready) *{transition:none!important}
 @media (prefers-reduced-motion:reduce){.sub *{transition:none!important}}
 .sub nav{display:flex;gap:24px}
