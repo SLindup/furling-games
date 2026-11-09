@@ -29,17 +29,23 @@ img{max-width:100%}
 .sub .in{display:flex;flex-wrap:wrap;align-items:center;gap:4px 28px}
 .sub-name{font-size:17px;color:#eef5f6;display:flex;align-items:center;gap:10px;margin-right:auto;min-height:32px}
 .sub-name > img{width:28px;height:28px;border-radius:7px;display:block}
-/* Docked Furling logo: a cream chip (the Furling bar's colour). Without JS it stays hidden at 0 wide. With JS
-   (.dock, from assets/js/game-bar.js) the chip is pinned to the viewport right over the Furling bar's logo, which
-   it stands in for: as you scroll, the chip holds still while the Furling bar slides away beneath it and this bar
-   rises to meet it; from the moment they touch, the chip shrinks into the bar and .sub-home widens (both driven
-   by scroll position) so the game name slides right to make room. */
+/* Docked Furling logo. Without JS it stays hidden at 0 wide. With JS (.dock, from assets/js/game-bar.js) the logo
+   is pinned to the viewport right over the Furling bar's logo, which it stands in for: as you scroll, it holds
+   still while the Furling bar slides away beneath it and this bar rises to meet it; from the moment they touch, it
+   shrinks into the bar and .sub-home widens (both driven by scroll position) so the game name slides right to make
+   room. .mark stacks the cream-bar logo over the dark-background one and splits them at --wipe (set by the
+   script to where the Furling bar's cream ends behind it): the light copy shows above that line and the dark copy
+   below, so each letter turns cream as the navy passes behind it. The clips reach 6px outside the logo so the
+   focus ring, drawn on both copies, is split the same way (dark on the cream, teal on the navy). */
 .sub-home{flex:none;display:block;width:0;height:32px;margin-right:-10px;visibility:hidden;outline:none}
-.sub-home .ch{--cut:7px;--bd:#fcf5e7;--fill:#fcf5e7;display:flex;align-items:center;width:88px;height:32px;padding:0 9px}
-.sub-home img{height:24px;width:auto;display:block}
+.sub-home .mark{--wipe:0px;display:block;position:relative}
+.sub-home img{display:block;width:80px;height:28px}
+.sub-home .on-light{clip-path:inset(-6px -6px calc(100% - var(--wipe)) -6px)}
+.sub-home .on-dark{position:absolute;left:0;top:0;clip-path:inset(var(--wipe) -6px -6px -6px)}
 .sub.dock .sub-home{visibility:visible}
-.sub.dock .sub-home .ch{position:fixed;left:0;top:0;z-index:1;transform-origin:0 0;will-change:transform}
-.sub-home:focus-visible .ch{--bd:#67d9c5}
+.sub.dock .sub-home .mark{position:fixed;left:0;top:0;z-index:1;transform-origin:0 0;will-change:transform}
+.sub-home:focus-visible img{outline:2px solid #67d9c5;outline-offset:3px;border-radius:2px}
+.sub-home:focus-visible .on-light{outline-color:#141414}
 .bar.dock > .in > a:first-child{visibility:hidden}
 .sub:not(.ready) *{transition:none!important}
 @media (prefers-reduced-motion:reduce){.sub *{transition:none!important}}
