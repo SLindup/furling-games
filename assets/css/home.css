@@ -31,7 +31,7 @@ img{max-width:100%}
 .btns{display:flex;flex-wrap:wrap;gap:16px;padding-top:6px}
 .portrait{flex:0 0 auto;margin:0 auto;padding:12px;position:relative}
 .portrait-in{width:200px;height:270px;border-radius:10px;background:#fbe1e3;border:2px solid #141414;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.portrait-in img{width:168px;height:auto;display:block;image-rendering:pixelated;margin-bottom:-4px}
+.portrait-in img{width:170px;height:auto;display:block;image-rendering:pixelated;margin-bottom:-4px}
 
 /* paper scrap: torn edges via clip-path on the inner span, so the shadow sits on the wrapper */
 .tag{position:absolute;bottom:-60px;right:-30px;rotate:-6deg;filter:drop-shadow(1px 3px 2px rgba(20,20,20,.25))}
@@ -45,7 +45,7 @@ img{max-width:100%}
 .games{display:flex;flex-direction:column;gap:30px;padding-top:104px}
 .sec-h{margin:0;font-size:46px;line-height:1.05}
 .feat{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;gap:32px;padding:18px}
-.shot{flex:1 1 420px;min-width:0;border:3px solid #141414;border-radius:10px;overflow:hidden;background:#08141d}
+.shot{flex:1 1 420px;min-width:0;border:3px solid #141414;border-radius:10px;overflow:hidden;background:#08131d}
 .shot img{display:block;width:100%;height:auto}
 .feat-t{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:12px;align-items:flex-start;padding:6px 8px}
 .feat-t .lab{color:#a0304a}
