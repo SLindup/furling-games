@@ -13,10 +13,13 @@ The Furling Games website: plain HTML and CSS, served by GitHub Pages at [furlin
 
 The home page uses `assets/css/home.css`; the Sector Defence pages use `assets/css/sector-defence.css`. Fonts are self-hosted (`assets/fonts/`), so no page loads anything from a third party.
 
-## When Sector Defence launches
+## Store links
 
-1. In `sector-defence/index.html`, replace the two `href="#"` store links with the real App Store and Google Play URLs.
-2. Add `class="launched"` to `<body>` in `index.html` and `sector-defence/index.html`. The home page sash switches to the red and gold "Out now", and the store buttons become links.
+Android is in closed beta: the Google Play button on `sector-defence/index.html` links to the [beta group](https://groups.google.com/g/sector-defence-beta), with a note under the buttons and a quick answer on the support page.
+
+The App Store version is out: `<body class="launched">` on `index.html` and `sector-defence/index.html` shows the home page's red and gold "Out now" sash and the App Store button linking to the store.
+
+When Android goes public, point the Google Play button at the Play Store listing, change its label to "Get it on Google Play", and remove the beta note and the support answer.
 
 ## Preview locally
 
