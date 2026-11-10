@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="../assets/css/fonts.css">
 <link rel="stylesheet" href="../assets/css/sector-defence.css">
 </head>
-<!-- Add class="launched" once the store links below are filled in: the buttons then link to the stores. -->
-<body>
+<!-- class="launched": the App Store button links to the store instead of saying "Coming soon". -->
+<body class="launched">
 <div class="bar">
   <div class="in">
     <a href="../" aria-label="Furling Games home"><img src="../assets/brand/furling-wordmark.svg" alt="Furling Games"></a>
@@ -39,12 +39,12 @@
       <h1 class="cp">Sector Defence</h1>
       <p class="lead">The drones are coming. Build towers, spend your credits wisely and keep the core standing through twelve waves.</p>
       <div class="stores">
-        <!-- TODO: replace both # links with the real store URLs before adding class="launched". -->
-        <a class="ch btn btn-p if-out" href="#">Get it on the App Store</a>
-        <a class="ch btn btn-s if-out" href="#">Get it on Google Play</a>
+        <a class="ch btn btn-p if-out" href="https://apps.apple.com/app/sector-defence/id6829883284">Get it on the App Store</a>
         <span class="ch btn btn-off if-soon">Coming soon to the App Store</span>
-        <span class="ch btn btn-off if-soon">Coming soon to Google Play</span>
+        <!-- Android is in closed beta: the group's welcome message walks testers through the Play opt-in. Swap for the Play Store URL when it goes public. -->
+        <a class="ch btn btn-s" href="https://groups.google.com/g/sector-defence-beta">Join the Android beta</a>
       </div>
+      <p class="stores-note">Android is in closed beta on Google Play. Join the group with the Google account on your phone, and it'll walk you through installing.</p>
       <p class="mono kicker">FREE · NO ADS · PLAYS OFFLINE</p>
     </div>
     <div class="hero-art">

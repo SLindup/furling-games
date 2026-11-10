@@ -68,7 +68,7 @@ img{max-width:100%}
 .btn-s{--bd:#67d9c5;--fill:#10202d;color:#eef5f6}.btn-s:hover{--fill:#163040;color:#eef5f6}
 .btn-off{--bd:#294250;--fill:#10202d;color:#91a8b8}
 
-/* launch switch: add class="launched" to <body> once the store links are live */
+/* launch switch: add class="launched" to <body> once the App Store link is live */
 body:not(.launched) .if-out{display:none}
 body.launched .if-soon{display:none}
 
@@ -78,6 +78,7 @@ body.launched .if-soon{display:none}
 .hero h1{margin:0;font-size:88px;line-height:.95;color:#eef5f6;letter-spacing:-.01em}
 .hero .lead{margin:0;font-size:22px;line-height:1.5;max-width:34ch}
 .stores{display:flex;flex-wrap:wrap;gap:14px;padding-top:6px}
+.stores-note{margin:-8px 0 0;font-size:15px;line-height:1.5;color:#91a8b8;max-width:46ch}
 .hero-art{flex:1 1 300px;display:flex;justify-content:center}
 .hero-icon{width:320px;height:320px;display:block;border-radius:68px;box-shadow:0 0 0 1px #294250,0 30px 80px rgba(103,217,197,.18)}
 .shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-bottom:72px}
